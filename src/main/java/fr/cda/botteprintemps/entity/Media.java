@@ -9,7 +9,6 @@ import lombok.Data;
 @AllArgsConstructor
 @Entity
 @Data
-@Table(indexes = { @Index(columnList = "path") })
 public class Media {
 
     @Id
