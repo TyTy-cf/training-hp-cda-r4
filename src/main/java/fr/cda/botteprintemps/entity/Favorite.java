@@ -5,31 +5,27 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Data
-public class Media {
+public class Favorite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String path;
-
-    @Column(nullable = false, length = 12)
-    private String extension;
+    private LocalDateTime createdAt;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
     private Lodging lodging;
 
-    @Override
-    public String toString() {
-        return "Media{" +
-                "id=" + id +
-                ", path='" + path + '\'' +
-                ", extension='" + extension + '\'' +
-                '}';
-    }
 }
