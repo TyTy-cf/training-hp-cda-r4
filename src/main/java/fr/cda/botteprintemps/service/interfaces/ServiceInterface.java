@@ -2,14 +2,14 @@ package fr.cda.botteprintemps.service.interfaces;
 
 import java.util.Optional;
 
-public interface ServiceInterface<T, L> {
+public interface ServiceInterface<T, L, C, U> {
 
-    T create(T o);
+    T create(C o);
 
-    T update(T o, L id);
+    T update(U o, L id) throws Exception;
 
     void delete(T o);
 
-    Optional<?> findOneById(L id);
+    T findOneById(L id) throws Exception;
 
 }

@@ -1,7 +1,7 @@
-package fr.cda.botteprintemps.service;
+package fr.cda.botteprintemps.service.redditish;
 
 import fr.cda.botteprintemps.entity.redditish.UserRedditish;
-import fr.cda.botteprintemps.repository.UserRedditishRepository;
+import fr.cda.botteprintemps.repository.redditish.UserRedditishRepository;
 import fr.cda.botteprintemps.service.interfaces.ServiceListInterface;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class UserRedditishService implements ServiceListInterface<UserRedditish, Long> {
+public class UserRedditishService implements ServiceListInterface<UserRedditish, Long, UserRedditish, UserRedditish> {
 
     private UserRedditishRepository repository;
 
@@ -38,8 +38,8 @@ public class UserRedditishService implements ServiceListInterface<UserRedditish,
     }
 
     @Override
-    public Optional<UserRedditish> findOneById(Long id) {
-        return repository.findById(id);
+    public UserRedditish findOneById(Long id) {
+        return repository.findById(id).orElseThrow();
     }
 
     @Override

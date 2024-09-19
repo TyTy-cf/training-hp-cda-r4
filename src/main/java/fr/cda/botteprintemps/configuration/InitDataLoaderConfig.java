@@ -2,7 +2,7 @@ package fr.cda.botteprintemps.configuration;
 
 import fr.cda.botteprintemps.entity.User;
 import fr.cda.botteprintemps.entity.redditish.UserRedditish;
-import fr.cda.botteprintemps.repository.UserRedditishRepository;
+import fr.cda.botteprintemps.repository.redditish.UserRedditishRepository;
 import lombok.AllArgsConstructor;
 import net.datafaker.Faker;
 import org.springframework.boot.CommandLineRunner;

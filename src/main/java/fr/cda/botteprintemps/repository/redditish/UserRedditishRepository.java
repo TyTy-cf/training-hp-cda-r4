@@ -1,4 +1,4 @@
-package fr.cda.botteprintemps.repository;
+package fr.cda.botteprintemps.repository.redditish;
 
 import fr.cda.botteprintemps.entity.redditish.UserRedditish;
 import fr.cda.botteprintemps.repository.interfaces.SlugRepository;

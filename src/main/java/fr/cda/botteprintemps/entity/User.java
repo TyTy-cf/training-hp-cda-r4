@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
-import java.awt.print.Book;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +39,10 @@ public class User {
     private boolean isVerified;
 
     @Column(nullable = false)
-    private LocalDate brithAt;
+    private LocalDate birthAt;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
 
     private String phone;
 
