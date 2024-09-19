@@ -1,5 +1,6 @@
 package fr.cda.botteprintemps.configuration;
 
+import fr.cda.botteprintemps.entity.User;
 import fr.cda.botteprintemps.entity.redditish.UserRedditish;
 import fr.cda.botteprintemps.repository.UserRedditishRepository;
 import lombok.AllArgsConstructor;
@@ -42,10 +43,11 @@ public class InitDataLoaderConfig implements CommandLineRunner {
                 user.setRegisteredAt(LocalDateTime.now());
                 user.setSlug(name.toLowerCase());
 
-//                User u = new User();
-//                u.setFirstName(faker.name().firstName());
-//                u.setLastName(faker.name().lastName());
-//                u.setEmail(faker.internet().emailAddress(u.getFirstName() + "." + u.getLastName()));
+                User u = new User();
+                u.setFirstName(faker.name().firstName());
+                u.setLastName(faker.name().lastName());
+                u.setRoles("[\"ROLE_USER\"]");
+                u.setEmail(faker.internet().emailAddress(u.getFirstName() + "." + u.getLastName()));
 
                 userRedditishRepository.save(user);
             }
