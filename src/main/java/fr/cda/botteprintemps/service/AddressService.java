@@ -37,7 +37,8 @@ public class AddressService implements ServiceListInterface<Address, Long, Addre
 
     @Override
     public Address findOneById(Long id) {
-        return addressRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        return addressRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
     }
 
     @Override

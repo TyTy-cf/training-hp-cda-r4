@@ -12,7 +12,8 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class LodgingService implements ServiceListInterface<Lodging, String, LodgingDTO, LodgingDTO> {
+public class LodgingService implements
+        ServiceListInterface<Lodging, String, LodgingDTO, LodgingDTO> {
 
     private LodgingRepository lodgingRepository;
 
@@ -38,7 +39,8 @@ public class LodgingService implements ServiceListInterface<Lodging, String, Lod
 
     @Override
     public Lodging findOneById(String id) {
-        return lodgingRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        return lodgingRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
     }
 
     @Override
@@ -46,13 +48,13 @@ public class LodgingService implements ServiceListInterface<Lodging, String, Lod
         return lodgingRepository.findAll();
     }
 
-    private Lodging objectFromDTO(Lodging o, LodgingDTO dto) {
-        o.setAccessible(dto.isAccessible());
-        o.setCapacity(dto.getCapacity());
-        o.setName(dto.getName());
-        o.setNightPrice(dto.getNightPrice());
-        o.setDescription(dto.getDescription());
-        o.setAddress(addressService.create(dto.getAddressDTO()));
-        return o;
+    private Lodging objectFromDTO(Lodging lodging, LodgingDTO dto) {
+        lodging.setAccessible(dto.isAccessible());
+        lodging.setCapacity(dto.getCapacity());
+        lodging.setName(dto.getName());
+        lodging.setNightPrice(dto.getNightPrice());
+        lodging.setDescription(dto.getDescription());
+        lodging.setAddress(addressService.create(dto.getAddressDTO()));
+        return lodging;
     }
 }
