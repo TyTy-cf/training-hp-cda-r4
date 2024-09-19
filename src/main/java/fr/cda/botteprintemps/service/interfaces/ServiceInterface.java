@@ -10,6 +10,6 @@ public interface ServiceInterface<T, L> {
 
     void delete(T o);
 
-    Optional<T> findOneById(L id);
+    Optional<?> findOneById(L id);
 
 }

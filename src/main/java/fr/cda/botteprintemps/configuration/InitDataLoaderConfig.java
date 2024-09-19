@@ -27,8 +27,8 @@ public class InitDataLoaderConfig implements CommandLineRunner {
     private void createUsers() {
         Faker faker = new Faker(Locale.of("fr"));
         List<String> duplicates = new ArrayList<>();
-        for (long i = 1L; i <= 500L; i++) {
-            if (userRedditishRepository.findById(i).isEmpty()) {
+        if (userRedditishRepository.count() != 500) {
+            for (long i = 1L; i <= 500L; i++) {
                 UserRedditish user = new UserRedditish();
                 String name;
                 do {
