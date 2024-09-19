@@ -1,26 +1,28 @@
-package fr.cda.botteprintemps.entity.courses;
+package fr.cda.botteprintemps.entity.redditish;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Data
-public class Category {
+public class UserFavoriteCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private LocalDateTime createdAt;
 
-    @ManyToMany(mappedBy = "categories")
-    private List<Product> products = new ArrayList<>();
+    @ManyToOne
+    private UserRedditish user;
+
+    @ManyToOne
+    private Category category;
 
 }

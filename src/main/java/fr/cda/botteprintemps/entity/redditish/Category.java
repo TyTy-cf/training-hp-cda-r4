@@ -2,7 +2,6 @@ package fr.cda.botteprintemps.entity.redditish;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.CustomLog;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
@@ -30,5 +29,8 @@ public class Category {
 
     @OneToMany(mappedBy = "parent")
     private List<Category> children = new ArrayList<>();
+
+    @OneToMany(mappedBy = "category")
+    private List<Thread> threads = new ArrayList<>();
 
 }
