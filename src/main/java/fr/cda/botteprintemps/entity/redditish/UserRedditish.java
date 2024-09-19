@@ -28,6 +28,8 @@ public class UserRedditish {
     @Column(length = 120, nullable = false)
     private String password;
 
+    private String activationCode;
+
     @Column(nullable = false)
     private LocalDateTime registeredAt;
 
