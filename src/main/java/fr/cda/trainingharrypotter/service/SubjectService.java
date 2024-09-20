@@ -21,16 +21,14 @@ public class SubjectService implements
     public Subject create(SubjectDTO o) {
         Subject subject = new Subject();
         subject.setSubjectName(o.getName());
-        subjectRepository.saveAndFlush(subject);
-        return subject;
+        return subjectRepository.saveAndFlush(subject);
     }
 
     @Override
     public Subject update(SubjectDTO o, Integer id) {
         Subject subject = findOneById(id);
         subject.setSubjectName(o.getName());
-        subjectRepository.flush();
-        return subject;
+        return subjectRepository.saveAndFlush(subject);
     }
 
     @Override
