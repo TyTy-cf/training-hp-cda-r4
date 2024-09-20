@@ -1,6 +1,5 @@
 package fr.cda.botteprintemps.slugger;
 
-import fr.cda.botteprintemps.slugger.SluggerEventListener;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.AllArgsConstructor;
@@ -8,9 +7,9 @@ import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.event.service.spi.EventListenerRegistry;
 import org.hibernate.event.spi.EventType;
 import org.hibernate.internal.SessionFactoryImpl;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 @AllArgsConstructor
 public class RegisterHibernateListener {
 

@@ -41,7 +41,6 @@ public class InitDataLoaderConfig implements CommandLineRunner {
                 user.setEmail(faker.internet().emailAddress());
                 user.setPassword(faker.internet().password(8, 12));
                 user.setRegisteredAt(LocalDateTime.now());
-                user.setSlug(name.toLowerCase());
 
                 User u = new User();
                 u.setFirstName(faker.name().firstName());

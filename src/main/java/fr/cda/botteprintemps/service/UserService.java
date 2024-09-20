@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -29,7 +28,7 @@ public class UserService implements
     }
 
     @Override
-    public User update(UserUpdateDTO o, String id) throws Exception {
+    public User update(UserUpdateDTO o, String id) {
         User u = getObjectsFromDTO(findOneById(id), o);
         u.setPhone(o.getPhone());
         u.setPhoto(o.getPhoto());

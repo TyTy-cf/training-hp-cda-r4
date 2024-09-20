@@ -1,11 +1,14 @@
 package fr.cda.botteprintemps.entity.redditish;
 
+import fr.cda.botteprintemps.slugger.SluggerInterface;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Data
-public class UserRedditish {
+public class UserRedditish implements SluggerInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,4 +51,9 @@ public class UserRedditish {
     @OneToMany(mappedBy = "user")
     private List<Reaction> reactions = new ArrayList<>();
 
+    @Override
+    public String getField() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-");
+        return registeredAt.format(formatter) + nickname;
+    }
 }

@@ -25,7 +25,7 @@ public class LodgingService implements
     }
 
     @Override
-    public Lodging update(LodgingDTO o, String id) throws Exception {
+    public Lodging update(LodgingDTO o, String id) {
         Lodging lodging = objectFromDTO(findOneById(id), o);
         lodging.setId(id);
         lodgingRepository.flush();

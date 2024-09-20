@@ -25,6 +25,9 @@ public class Thread {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(nullable = false)
+    private String slug;
+
     @ManyToOne
     @JoinColumn(nullable = false)
     private Category category;
