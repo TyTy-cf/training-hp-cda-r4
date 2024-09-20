@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fr.cda</groupId>
-	<artifactId>botteprintemps</artifactId>
+	<artifactId>trainingharrypotter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>botteprintemps</name>
-	<description>Course for SpringBoot CDA R4</description>
+	<name>trainingharrypotter</name>
+	<description>Training Harry Potter for CDA R4</description>
 	<url/>
 	<licenses>
 		<license/>
