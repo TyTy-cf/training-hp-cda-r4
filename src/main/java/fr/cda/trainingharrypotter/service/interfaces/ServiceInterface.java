@@ -1,13 +1,13 @@
 package fr.cda.trainingharrypotter.service.interfaces;
 
-public interface ServiceInterface<T, L, C, U> {
+public interface ServiceInterface<T, ID, C, U> {
 
     T create(C o);
 
-    T update(U o, L id);
+    T update(U o, ID id);
 
     void delete(T o);
 
-    T findOneById(L id);
+    T findOneById(ID id);
 
 }
