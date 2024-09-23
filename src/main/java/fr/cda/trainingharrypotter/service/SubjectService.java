@@ -32,9 +32,9 @@ public class SubjectService implements
     }
 
     @Override
-    public void delete(Subject o) {
-        if (o != null) {
-            subjectRepository.delete(o);
+    public void delete(Integer id) {
+        if (id != null) {
+            subjectRepository.deleteById(id);
         }
     }
 
