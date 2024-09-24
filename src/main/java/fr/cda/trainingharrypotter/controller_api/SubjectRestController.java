@@ -27,8 +27,8 @@ public class SubjectRestController {
     }
 
     @GetMapping("/{id}")
-    public Subject show(@PathVariable Integer id) {
-        return subjectService.findOneById(id);
+    public Subject show(@PathVariable String id) {
+        return subjectService.findOneById(Integer.parseInt(id));
     }
 
     @PutMapping("/{id}")
