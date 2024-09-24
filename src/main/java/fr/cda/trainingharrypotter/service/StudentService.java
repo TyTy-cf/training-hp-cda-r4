@@ -25,8 +25,7 @@ public class StudentService implements
         student.setName(o.getName());
         student.setYearOfBirth(o.getYearOfBirth());
         student.setHouse(houseService.findOneById(o.getHouseId()));
-        studentRepository.saveAndFlush(student);
-        return student;
+        return studentRepository.saveAndFlush(student);
     }
 
     @Override
@@ -36,8 +35,7 @@ public class StudentService implements
         student.setName(o.getName());
         student.setYearOfBirth(o.getYearOfBirth());
         student.setHouse(houseService.findOneById(o.getHouseId()));
-        studentRepository.saveAndFlush(student);
-        return student;
+        return studentRepository.saveAndFlush(student);
     }
 
     @Override
