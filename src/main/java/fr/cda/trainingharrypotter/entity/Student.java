@@ -1,5 +1,7 @@
 package fr.cda.trainingharrypotter.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import fr.cda.trainingharrypotter.json_views.JsonViews;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,16 +18,19 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(JsonViews.HouseShowView.class)
     private Integer id;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.HouseShowView.class)
     private String name;
 
     @Column(nullable = false)
     private int yearOfBirth;
 
     @Column(nullable = false)
-    private boolean isAlive;
+    @JsonView(JsonViews.HouseShowView.class)
+    private Boolean isAlive;
 
     @ManyToOne
     @JoinColumn(nullable = false)

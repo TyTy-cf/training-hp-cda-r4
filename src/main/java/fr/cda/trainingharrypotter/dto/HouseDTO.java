@@ -12,15 +12,12 @@ import lombok.NoArgsConstructor;
 public class HouseDTO {
 
     @NotBlank
-    @NotNull
     private String houseName;
 
     @NotBlank
-    @NotNull
     private String founderFirstName;
 
     @NotBlank
-    @NotNull
     private String founderLastName;
 
 }

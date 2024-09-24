@@ -1,5 +1,7 @@
 package fr.cda.trainingharrypotter.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import fr.cda.trainingharrypotter.json_views.JsonViews;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,9 +18,11 @@ public class HousePoint {
     private Integer id;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.HouseShowView.class)
     private int year;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.HouseShowView.class)
     private int totalPoint;
 
     @ManyToOne

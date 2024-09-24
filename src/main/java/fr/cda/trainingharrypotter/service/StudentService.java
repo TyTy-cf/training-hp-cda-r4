@@ -21,7 +21,7 @@ public class StudentService implements
     @Override
     public Student create(StudentDTO o) {
         Student student = new Student();
-        student.setAlive(o.isAlive());
+        student.setIsAlive(o.isAlive());
         student.setName(o.getName());
         student.setYearOfBirth(o.getYearOfBirth());
         student.setHouse(houseService.findOneById(o.getHouseId()));
@@ -31,7 +31,7 @@ public class StudentService implements
     @Override
     public Student update(StudentDTO o, Integer id) {
         Student student = findOneById(id);
-        student.setAlive(o.isAlive());
+        student.setIsAlive(o.isAlive());
         student.setName(o.getName());
         student.setYearOfBirth(o.getYearOfBirth());
         student.setHouse(houseService.findOneById(o.getHouseId()));

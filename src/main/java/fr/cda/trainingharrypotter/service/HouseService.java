@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -48,5 +49,16 @@ public class HouseService implements
     @Override
     public List<House> list() {
         return houseRepository.findAll();
+    }
+
+    public House findBySearch(String search) {
+        Optional<House> optional;
+        try {
+            Integer id = Integer.parseInt(search);
+            optional = houseRepository.findById(id);
+        } catch (NumberFormatException e) {
+            optional = houseRepository.findByHouseNameContainingIgnoreCase(search);
+        }
+        return optional.orElseThrow(EntityNotFoundException::new);
     }
 }

@@ -3,6 +3,7 @@ package fr.cda.trainingharrypotter.controller_api;
 import fr.cda.trainingharrypotter.dto.SubjectDTO;
 import fr.cda.trainingharrypotter.entity.Subject;
 import fr.cda.trainingharrypotter.service.SubjectService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class SubjectRestController {
     }
 
     @PostMapping
-    public Subject create(@RequestBody SubjectDTO dto) {
+    public Subject create(@Valid @RequestBody SubjectDTO dto) {
         return subjectService.create(dto);
     }
 
@@ -32,7 +33,7 @@ public class SubjectRestController {
     }
 
     @PutMapping("/{id}")
-    public Subject update(@RequestBody SubjectDTO dto, @PathVariable Integer id) {
+    public Subject update(@Valid @RequestBody SubjectDTO dto, @PathVariable Integer id) {
         return subjectService.update(dto, id);
     }
 
