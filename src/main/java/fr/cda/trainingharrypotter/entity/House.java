@@ -18,11 +18,11 @@ public class House {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(JsonViews.HouseMinimalView.class)
+    @JsonView({JsonViews.HouseMinimalView.class, JsonViews.StudentMinimalView.class})
     private Integer id;
 
     @Column(nullable = false)
-    @JsonView(JsonViews.HouseMinimalView.class)
+    @JsonView({JsonViews.HouseMinimalView.class, JsonViews.StudentMinimalView.class})
     private String houseName;
 
     @Column(nullable = false)

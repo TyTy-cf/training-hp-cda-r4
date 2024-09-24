@@ -1,5 +1,7 @@
 package fr.cda.trainingharrypotter.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import fr.cda.trainingharrypotter.json_views.JsonViews;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,14 +21,17 @@ public class TypeOfClass {
     private Integer id;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.StudentShowView.class)
     private int yearTaught;
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @JsonView(JsonViews.StudentShowView.class)
     private Teacher teacher;
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @JsonView(JsonViews.StudentShowView.class)
     private Subject subject;
 
     @ManyToMany(mappedBy = "typeOfClasses")

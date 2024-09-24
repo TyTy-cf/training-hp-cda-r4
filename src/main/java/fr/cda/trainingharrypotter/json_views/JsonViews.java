@@ -6,4 +6,8 @@ public class JsonViews {
     public interface HouseListView extends HouseMinimalView {}
     public interface HouseShowView extends HouseMinimalView {}
 
+    public interface StudentMinimalView {}
+    public interface StudentListView extends StudentMinimalView {}
+    public interface StudentShowView extends StudentMinimalView {}
+
 }

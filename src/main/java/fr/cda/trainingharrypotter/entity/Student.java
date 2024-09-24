@@ -18,22 +18,24 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(JsonViews.HouseShowView.class)
+    @JsonView({JsonViews.HouseShowView.class, JsonViews.StudentMinimalView.class})
     private Integer id;
 
     @Column(nullable = false)
-    @JsonView(JsonViews.HouseShowView.class)
+    @JsonView({JsonViews.HouseShowView.class, JsonViews.StudentMinimalView.class})
     private String name;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.StudentShowView.class)
     private int yearOfBirth;
 
     @Column(nullable = false)
-    @JsonView(JsonViews.HouseShowView.class)
+    @JsonView({JsonViews.HouseShowView.class, JsonViews.StudentMinimalView.class})
     private Boolean isAlive;
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @JsonView(JsonViews.StudentMinimalView.class)
     private House house;
 
     @ManyToMany
@@ -42,9 +44,11 @@ public class Student {
         inverseJoinColumns = @JoinColumn(name = "type_of_class_id"),
         joinColumns = @JoinColumn(name = "student_id")
     )
+    @JsonView(JsonViews.StudentShowView.class)
     private List<TypeOfClass> typeOfClasses = new ArrayList<>();
 
     @OneToMany(mappedBy = "student")
+    @JsonView(JsonViews.StudentShowView.class)
     private List<OffenseList> offenseLists = new ArrayList<>();
 
 }
