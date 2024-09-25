@@ -54,9 +54,11 @@ public class HouseService implements
     public House findBySearch(String search) {
         Optional<House> optional;
         try {
-            Integer id = Integer.parseInt(search);
-            optional = houseRepository.findById(id);
+            optional = houseRepository.findById(Integer.parseInt(search));
         } catch (NumberFormatException e) {
+            // Containing => LIKE %...%
+            // IgnoreCase => LOWER(..)
+            // byHouseName => LIKE .. // = ..
             optional = houseRepository.findByHouseNameContainingIgnoreCase(search);
         }
         return optional.orElseThrow(EntityNotFoundException::new);
